@@ -1,0 +1,26 @@
+name: "ADR reindexer"
+description: "Reindex ADRs to fix merge conflicts"
+
+branding:
+  icon: "hash"
+  color: "blue"
+
+inputs:
+  adrDir:
+    description: "The relative directory where ADRs are located"
+    required: true
+  targetBranch:
+    description: "The target branch to compare the ADR directory against"
+    required: true
+  tocTitle:
+    description: "Name for the table of contents"
+    required: true
+    default: "Architecture Decision Records"
+
+outputs:
+  reindexed:
+    description: "The number of ADRs reindexed"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
